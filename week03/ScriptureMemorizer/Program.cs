@@ -2,13 +2,11 @@ using System;
 
 class Program
 {
-    // I found a csv file with all the scriptures in it on GitHub.
-    // I will use this file to get the scripture text, I had problems with accessing it, so I added it to the bin folder.
-    // I also have the original file int there as well.
-    // My program asks the user for the book name, chapter, and verse number.
-    // It then searches the csv file for the scripture and returns the text.
-    // I have not yet figured out how to work the input side to cross reference differen book inputs, for example
-    // if the user inputs D&C instead of Doctrine and Covenants, it will not find the scripture. So I replaced the text for this project.
+    // ABOVE AND BEYOND MODIFICATIONS:
+    // Added a file with all the scriptures as references.
+    // This program will allow the user to play a game of Scripture Hangman after the initial Memorizer program, or if they quit the first program.
+    // Added a lookup file section to my class.
+    // The file path did not work the first time, so I moved the file to the same directory as the Program.cs file.
 
 
     static void Main(string[] args)
