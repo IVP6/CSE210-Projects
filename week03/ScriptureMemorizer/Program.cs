@@ -10,14 +10,26 @@ class Program
     // I have not yet figured out how to work the input side to cross reference differen book inputs, for example
     // if the user inputs D&C instead of Doctrine and Covenants, it will not find the scripture. So I replaced the text for this project.
 
-    
+
     static void Main(string[] args)
     {
         //Calls to the Reference in search for scripture.
 
         Word word = new Word();
         word.HideAllWords();
+
+        Console.WriteLine("Would you like to play Scripture Hangman? (yes/no)");
+        string response = Console.ReadLine().ToLower();
+        if (response == "yes")
+        {
+            Hangman hangman = new Hangman();
+        }
+        else
+        {
+            Console.WriteLine("Thank you for using the Scripture Memorizer, Good Bye!");
+        }
     }
+    
 
 
 
