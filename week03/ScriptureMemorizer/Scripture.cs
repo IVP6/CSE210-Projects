@@ -6,7 +6,7 @@ class Scripture
 
     public static List<string> Scriptures = new List<string>();
     // Hold scripture text
-    public string _scripture;
+    private string _scripture;
 
     public string GetScripture()
     {
