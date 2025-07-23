@@ -16,7 +16,7 @@ class Scripture
     // Constructor that reads from the CSV
     public Scripture(string bookName, string chapter, string verseNumber)
     {
-        using (var reader = new StreamReader("C:/Users/Ivann/OneDrive/Desktop/Home Work/CSE210/CSE210_Repository/CSE210-Projects/week03/ScriptureMemorizer/ALLScriptures.csv"))
+        using (var reader = new StreamReader("week03/ScriptureMemorizer/ALLScriptures.csv"))
         {
             while (!reader.EndOfStream)
             {
