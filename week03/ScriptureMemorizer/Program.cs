@@ -15,8 +15,8 @@ class Program
     {
         //Calls to the Reference in search for scripture.
 
-        Display display = new Display();
-        display.HideAllWords();
+        Word word = new Word();
+        word.HideAllWords();
     }
 
 

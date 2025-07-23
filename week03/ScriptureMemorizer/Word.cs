@@ -3,12 +3,12 @@ using System.Data;
 using System.Diagnostics.Metrics;
 using System.Security.Cryptography.X509Certificates;
 
-class Display
+class Word
 {
     private string _scripture;
     private string _scriptureInfo;
 
-    public Display()
+    public Word()
     {
         // Get scripture from (SC)
         Reference reference = new Reference();
