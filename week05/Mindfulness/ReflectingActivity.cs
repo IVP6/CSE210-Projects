@@ -30,8 +30,8 @@ class ReflectingActivity : Activity
 {
     protected List<string> _prompts;
     protected List<string> _questions;
-    protected List<string> _promptAnswers;
-    protected List<string> _questionAnswers;
+    private string _promptAnswers;
+    private string _questionAnswers;
 
     public ReflectingActivity()
         : base("Reflecting Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
@@ -60,9 +60,9 @@ class ReflectingActivity : Activity
 
     public void Run()
     {
-        Console.Clear();
+        GetDuration();
         DisplayStartingMessage();
-        GetDuration(); // Get the duration from the user
+         // Get the duration from the user
         Console.WriteLine("Let's begin with a prompt:");
         DisplayPrompt();
         Console.WriteLine("Now, let's reflect on some questions related to your experience.");
@@ -74,11 +74,13 @@ class ReflectingActivity : Activity
         DateTime endTime = DateTime.Now.AddSeconds(_duration);
         while (DateTime.Now < endTime)
         {
+            
+            Console.WriteLine(" ");
             Console.WriteLine("Answer: ");
             var input = Console.ReadLine();
-            _promptAnswers.Add(input);
+            _promptAnswers = input;
             // Simulate a pause with a countdown
-            ShowCountDown(_duration); // Adjust the countdown duration as needed
+             // Adjust the countdown duration as needed
         }
 
         DisplayEndingMessage();
@@ -109,8 +111,6 @@ class ReflectingActivity : Activity
     {
         string question = GetRandomQuestion();
         Console.WriteLine(question);
-        var input2 = Console.ReadLine(); // Wait for user input to continue
-        _questionAnswers.Add(input2);
     }
 
 
