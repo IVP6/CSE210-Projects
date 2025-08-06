@@ -31,10 +31,10 @@ class ReflectingActivity : Activity
     protected List<string> _prompts;
     protected List<string> _questions;
     private string _promptAnswers;
-    private string _questionAnswers;
+    // Removed redundant _duration field; using inherited _duration from Activity
 
     public ReflectingActivity()
-        : base("Reflecting Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
+        : base("Reflecting Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience.\n This will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
         _prompts = new List<string>
         {
@@ -60,31 +60,40 @@ class ReflectingActivity : Activity
 
     public void Run()
     {
-        GetDuration();
+        int duration = GetDuration();
+        _duration = duration;
         DisplayStartingMessage();
-         // Get the duration from the user
+
         Console.WriteLine("Let's begin with a prompt:");
         DisplayPrompt();
-        Console.WriteLine("Now, let's reflect on some questions related to your experience.");
-        DisplayQuestion();
-        Console.WriteLine("When you are ready to answer, press enter to continue.");
+        Console.WriteLine("\nNow ponder on this. When you have thought about it, press enter to continue...");
         Console.ReadLine();
 
+        Console.WriteLine("Now consider the following questions as they relate to this experience.");
+        Console.WriteLine("You may begin in: ");
+        ShowCountDown(5); // 5 second countdown
 
-        DateTime endTime = DateTime.Now.AddSeconds(_duration);
+        // Start the reflection timer
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_duration);
+
         while (DateTime.Now < endTime)
         {
-            
-            Console.WriteLine(" ");
-            Console.WriteLine("Answer: ");
-            var input = Console.ReadLine();
-            _promptAnswers = input;
-            // Simulate a pause with a countdown
-             // Adjust the countdown duration as needed
-        }
+            // Display a random question
+            DisplayQuestion();
+            string reflectionAnswer = Console.ReadLine(); // Wait for user to press enter
+            _promptAnswers += reflectionAnswer;
 
+            // Show spinner while user reflects (10 seconds per question)
+            ShowSpinner(5);
+
+            // Check if we still have time left
+            if (DateTime.Now >= endTime)
+                break;
+        }
+    
         DisplayEndingMessage();
-        Menu(); // Call the static Menu method from Activity class
+        Menu();
     }
 
     public string GetRandomPrompt()
@@ -112,9 +121,4 @@ class ReflectingActivity : Activity
         string question = GetRandomQuestion();
         Console.WriteLine(question);
     }
-
-
-
-
-
 }
