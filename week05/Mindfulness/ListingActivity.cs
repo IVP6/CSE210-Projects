@@ -19,15 +19,17 @@
 class ListingActivity : Activity
 {
     private List<string> _answers;
-    public ListingActivity() : base("Listing Activity", "List things you are grateful for")
+
+    public ListingActivity() : base("Listing Activity", "Create a lis t of items in response to a prompt.")
     {
         _answers = new List<string>();  // Initialize the list!
     }
 
     public  void Run()
     {
-         DisplayStartingMessage();
         int duration = GetDuration();
+        DisplayStartingMessage();
+        
         _duration = duration;
 
         ShowSpinner(3);

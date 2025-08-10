@@ -79,7 +79,9 @@ class Activity
         Console.WriteLine("3. Listing Activity");
         Console.WriteLine("4. Exit");
 
+        Console.Write("Enter your choice: ");
         string choice = Console.ReadLine();
+
         switch (choice)
         {
             case "1":
