@@ -4,10 +4,9 @@ class Swimming : Activity
     private double _poolLength = 50; // in meters
 
     public Swimming(string name, DateTime date, double duration, int laps)
-        : base(name, date, duration, 0) // distance will be calculated
+        : base(name, date, duration, 0) 
     {
         _laps = laps;
-        // Calculate distance in miles
         _distance = GetDistance();
     }
 
